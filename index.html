@@ -85,12 +85,15 @@
       share stories, enjoy food, laugh freely, and strengthen our family bond.
     </p>
   </div>  <div class="card">
-    <h2>Why We Meet</h2>
+    <h2>Family Members & Heads</h2>
     <ul>
-      <li>To stay connected despite busy lives</li>
-      <li>To celebrate love, unity, and togetherness</li>
-      <li>To create memories for every generation</li>
-      <li>To remind ourselves that family always comes first</li>
+      <li>1️⃣ Head: Jushnara | Members: 4</li>
+      <li>2️⃣ Head: Parbeen | Members: 6</li>
+      <li>3️⃣ Head: Sabina | Members: 4</li>
+      <li>4️⃣ Head: Masuma | Members: 4</li>
+      <li>5️⃣ Head: Lotifa | Members: 5</li>
+      <li>6️⃣ Head: Ajija | Members: 3</li>
+      <li>7️⃣ Head: Mehtaz | Members: 2</li>
     </ul>
   </div>  <div class="card">
     <h2>Next Family Meet Countdown</h2>
@@ -100,17 +103,18 @@
       <div><span id="minutes">0</span>Minutes</div>
       <div><span id="seconds">0</span>Seconds</div>
     </div>
+    <button onclick="resetCountdown()" style="margin-top:15px;padding:10px 20px;border:none;border-radius:12px;background:#ff5f8a;color:white;font-weight:bold;cursor:pointer;">Reset Countdown</button>
   </div>  <div class="card">
-    <p class="quote">“Family is where life begins and love never ends.”</p>
-  </div>
-  <div class="card">
     <h2>Family Attendance</h2>
     <p>Please mark attendance for this meeting. Members who do not attend may be subject to a family-decided fine.</p>
     <form id="attendanceForm">
-      <label><input type="checkbox" name="member" value="Member 1"> Member 1</label><br>
-      <label><input type="checkbox" name="member" value="Member 2"> Member 2</label><br>
-      <label><input type="checkbox" name="member" value="Member 3"> Member 3</label><br>
-      <label><input type="checkbox" name="member" value="Member 4"> Member 4</label><br><br>
+      <label><input type="checkbox" name="member" value="Jushnara"> Jushnara</label><br>
+      <label><input type="checkbox" name="member" value="Parbeen"> Parbeen</label><br>
+      <label><input type="checkbox" name="member" value="Sabina"> Sabina</label><br>
+      <label><input type="checkbox" name="member" value="Masuma"> Masuma</label><br>
+      <label><input type="checkbox" name="member" value="Lotifa"> Lotifa</label><br>
+      <label><input type="checkbox" name="member" value="Ajija"> Ajija</label><br>
+      <label><input type="checkbox" name="member" value="Mehtaz"> Mehtaz</label><br><br>
       <button type="button" onclick="checkAttendance()">Submit Attendance</button>
     </form>
     <p id="attendanceResult"></p>
@@ -118,84 +122,4 @@
     <h2>Family Memories</h2>
     <p>Click the + icon to upload and save your beautiful family moments.</p>
     <label for="photoUpload" style="font-size:40px;cursor:pointer;color:#ff5f8a;">＋</label>
-    <input type="file" id="photoUpload" accept="image/*" style="display:none" multiple>
-    <div id="gallery" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:15px;"></div>
-  </div></section><footer>
-  © 2026 Forever Family | Built with Love
-</footer><script>
-  // Set your next meeting date here
-    const FINE_PER_MEMBER = 500;
-
-  function checkAttendance(){
-    const checkboxes = document.querySelectorAll('input[name="member"]');
-    let absent = [];
-    checkboxes.forEach(cb => {
-      if(!cb.checked){ absent.push(cb.value); }
-    });
-
-    const fine = absent.length * FINE_PER_MEMBER;
-
-    if(absent.length === 0){
-      document.getElementById('attendanceResult').innerText = "Everyone attended. No fine 🎉";
-    } else {
-      document.getElementById('attendanceResult').innerText = `Absent members: ${absent.join(', ')} | Total Fine: ₹${fine}`;
-    }
-
-    // Save attendance permanently in browser
-    localStorage.setItem('attendance', JSON.stringify(absent));
-  }
-
-  // Load saved attendance
-  const savedAbsent = JSON.parse(localStorage.getItem('attendance') || '[]');
-  if(savedAbsent.length > 0){
-    document.getElementById('attendanceResult').innerText = `Previously Absent: ${savedAbsent.join(', ')}`;
-  }
-
-  const meetingDate = new Date("2026-06-01T00:00:00").getTime();
-
-    function checkAttendance(){
-    const checkboxes = document.querySelectorAll('input[name="member"]');
-    let absent = [];
-    checkboxes.forEach(cb => {
-      if(!cb.checked){ absent.push(cb.value); }
-    });
-    if(absent.length === 0){
-      document.getElementById('attendanceResult').innerText = "Everyone attended. No fine 🎉";
-    } else {
-      document.getElementById('attendanceResult').innerText = "Absent members (fine applicable): " + absent.join(', ');
-    }
-  }
-
-  document.getElementById('photoUpload').addEventListener('change', function(e){
-    const gallery = document.getElementById('gallery');
-    Array.from(e.target.files).forEach(file => {
-      const reader = new FileReader();
-      reader.onload = function(){
-        const img = document.createElement('img');
-        img.src = reader.result;
-        img.style.width = '120px';
-        img.style.height = '120px';
-        img.style.objectFit = 'cover';
-        img.style.borderRadius = '12px';
-        gallery.appendChild(img);
-      }
-      reader.readAsDataURL(file);
-    });
-  });
-
-  setInterval(() => {
-    const now = new Date().getTime();
-    const distance = meetingDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
-  }, 1000);
-</script></body>
-</html>
+    <input type="file" id="photoUpload"
