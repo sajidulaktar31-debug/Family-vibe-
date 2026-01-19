@@ -40,19 +40,6 @@
       color:#ff5f8a;
       margin-bottom:15px;
     }
-    .quote{
-      font-size:20px;
-      font-style:italic;
-      text-align:center;
-      color:#555;
-    }
-    footer{
-      background:#222;
-      color:#ccc;
-      text-align:center;
-      padding:20px;
-      font-size:14px;
-    }
     .attendance-group{
       margin-bottom:20px;
     }
@@ -166,7 +153,53 @@
   <div class="fine-display" id="fineParbeen"></div>
 </div>
 
-<!-- Add other family heads similarly -->
+<div class="attendance-group" id="groupSabina">
+  <strong>3. Sabina (Head)</strong>
+  <label><input type="checkbox" name="SabinaMember1"> Member 1</label>
+  <label><input type="checkbox" name="SabinaMember2"> Member 2</label>
+  <label><input type="checkbox" name="SabinaMember3"> Member 3</label>
+  <label><input type="checkbox" name="SabinaMember4"> Member 4</label>
+  <button class="submit-btn" onclick="submitAttendance('Sabina', 4)">Submit Attendance & Send to WhatsApp Group</button>
+  <div class="fine-display" id="fineSabina"></div>
+</div>
+
+<div class="attendance-group" id="groupMasuma">
+  <strong>4. Masuma (Head)</strong>
+  <label><input type="checkbox" name="MasumaMember1"> Member 1</label>
+  <label><input type="checkbox" name="MasumaMember2"> Member 2</label>
+  <label><input type="checkbox" name="MasumaMember3"> Member 3</label>
+  <label><input type="checkbox" name="MasumaMember4"> Member 4</label>
+  <button class="submit-btn" onclick="submitAttendance('Masuma', 4)">Submit Attendance & Send to WhatsApp Group</button>
+  <div class="fine-display" id="fineMasuma"></div>
+</div>
+
+<div class="attendance-group" id="groupLotifa">
+  <strong>5. Lotifa (Head)</strong>
+  <label><input type="checkbox" name="LotifaMember1"> Member 1</label>
+  <label><input type="checkbox" name="LotifaMember2"> Member 2</label>
+  <label><input type="checkbox" name="LotifaMember3"> Member 3</label>
+  <label><input type="checkbox" name="LotifaMember4"> Member 4</label>
+  <label><input type="checkbox" name="LotifaMember5"> Member 5</label>
+  <button class="submit-btn" onclick="submitAttendance('Lotifa', 5)">Submit Attendance & Send to WhatsApp Group</button>
+  <div class="fine-display" id="fineLotifa"></div>
+</div>
+
+<div class="attendance-group" id="groupAjija">
+  <strong>6. Ajija (Head)</strong>
+  <label><input type="checkbox" name="AjijaMember1"> Member 1</label>
+  <label><input type="checkbox" name="AjijaMember2"> Member 2</label>
+  <label><input type="checkbox" name="AjijaMember3"> Member 3</label>
+  <button class="submit-btn" onclick="submitAttendance('Ajija', 3)">Submit Attendance & Send to WhatsApp Group</button>
+  <div class="fine-display" id="fineAjija"></div>
+</div>
+
+<div class="attendance-group" id="groupMehtaz">
+  <strong>7. Mehtaz (Head)</strong>
+  <label><input type="checkbox" name="MehtazMember1"> Member 1</label>
+  <label><input type="checkbox" name="MehtazMember2"> Member 2</label>
+  <button class="submit-btn" onclick="submitAttendance('Mehtaz', 2)">Submit Attendance & Send to WhatsApp Group</button>
+  <div class="fine-display" id="fineMehtaz"></div>
+</div>
 
   </div>  <div class="card">
     <h2>Family Memories</h2>
@@ -215,7 +248,6 @@ function updateMeetingDate(){
   if(selected) meetingDate = new Date(selected+'T00:00:00').getTime();
 }
 
-// Photo upload with delete
 const gallery = document.getElementById('gallery');
 document.getElementById('photoUpload').addEventListener('change',function(e){
   Array.from(e.target.files).forEach(file=>{
