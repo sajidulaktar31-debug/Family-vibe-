@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forever Family</title>
+  <style>
+    body{
+      margin:0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background:#fff7f9;
+      color:#333;
+    }
+    header{
+      background:linear-gradient(135deg,#ff758c,#ff7eb3);
+      color:white;
+      text-align:center;
+      padding:60px 20px;
+    }
+    header h1{
+      font-size:42px;
+      margin:0;
+    }
+    header p{
+      font-size:18px;
+      margin-top:10px;
+    }
+    section{
+      padding:50px 20px;
+      max-width:1000px;
+      margin:auto;
+    }
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      margin-bottom:30px;
+    }
+    h2{
+      color:#ff5f8a;
+      margin-bottom:15px;
+    }
+    .quote{
+      font-size:20px;
+      font-style:italic;
+      text-align:center;
+      color:#555;
+    }
+    footer{
+      background:#222;
+      color:#ccc;
+      text-align:center;
+      padding:20px;
+      font-size:14px;
+    }
+    .countdown{
+      display:flex;
+      justify-content:space-around;
+      text-align:center;
+      margin-top:20px;
+    }
+    .countdown div{
+      background:#ffe4ec;
+      padding:15px;
+      border-radius:12px;
+      width:100px;
+    }
+    .countdown span{
+      display:block;
+      font-size:26px;
+      font-weight:bold;
+      color:#ff5f8a;
+    }
+  </style>
+</head>
+<body><header>
+  <h1>Forever Family</h1>
+  <p>Together in Heart, Forever in Love</p>
+</header><section>
+  <div class="card">
+    <h2>About Our Family Meet</h2>
+    <p>
+      Forever Family is our special family gathering that happens every six months.
+      It is a beautiful time when all family members come together to reconnect,
+      share stories, enjoy food, laugh freely, and strengthen our family bond.
+    </p>
+  </div>  <div class="card">
+    <h2>Why We Meet</h2>
+    <ul>
+      <li>To stay connected despite busy lives</li>
+      <li>To celebrate love, unity, and togetherness</li>
+      <li>To create memories for every generation</li>
+      <li>To remind ourselves that family always comes first</li>
+    </ul>
+  </div>  <div class="card">
+    <h2>Next Family Meet Countdown</h2>
+    <div class="countdown" id="countdown">
+      <div><span id="days">0</span>Days</div>
+      <div><span id="hours">0</span>Hours</div>
+      <div><span id="minutes">0</span>Minutes</div>
+      <div><span id="seconds">0</span>Seconds</div>
+    </div>
+  </div>  <div class="card">
+    <p class="quote">“Family is where life begins and love never ends.”</p>
+  </div>
+  <div class="card">
+    <h2>Family Attendance</h2>
+    <p>Please mark attendance for this meeting. Members who do not attend may be subject to a family-decided fine.</p>
+    <form id="attendanceForm">
+      <label><input type="checkbox" name="member" value="Member 1"> Member 1</label><br>
+      <label><input type="checkbox" name="member" value="Member 2"> Member 2</label><br>
+      <label><input type="checkbox" name="member" value="Member 3"> Member 3</label><br>
+      <label><input type="checkbox" name="member" value="Member 4"> Member 4</label><br><br>
+      <button type="button" onclick="checkAttendance()">Submit Attendance</button>
+    </form>
+    <p id="attendanceResult"></p>
+  </div>  <div class="card">
+    <h2>Family Memories</h2>
+    <p>Click the + icon to upload and save your beautiful family moments.</p>
+    <label for="photoUpload" style="font-size:40px;cursor:pointer;color:#ff5f8a;">＋</label>
+    <input type="file" id="photoUpload" accept="image/*" style="display:none" multiple>
+    <div id="gallery" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:15px;"></div>
+  </div></section><footer>
+  © 2026 Forever Family | Built with Love
+</footer><script>
+  // Set your next meeting date here
+    const FINE_PER_MEMBER = 500;
+
+  function checkAttendance(){
+    const checkboxes = document.querySelectorAll('input[name="member"]');
+    let absent = [];
+    checkboxes.forEach(cb => {
+      if(!cb.checked){ absent.push(cb.value); }
+    });
+
+    const fine = absent.length * FINE_PER_MEMBER;
+
+    if(absent.length === 0){
+      document.getElementById('attendanceResult').innerText = "Everyone attended. No fine 🎉";
+    } else {
+      document.getElementById('attendanceResult').innerText = `Absent members: ${absent.join(', ')} | Total Fine: ₹${fine}`;
+    }
+
+    // Save attendance permanently in browser
+    localStorage.setItem('attendance', JSON.stringify(absent));
+  }
+
+  // Load saved attendance
+  const savedAbsent = JSON.parse(localStorage.getItem('attendance') || '[]');
+  if(savedAbsent.length > 0){
+    document.getElementById('attendanceResult').innerText = `Previously Absent: ${savedAbsent.join(', ')}`;
+  }
+
+  const meetingDate = new Date("2026-06-01T00:00:00").getTime();
+
+    function checkAttendance(){
+    const checkboxes = document.querySelectorAll('input[name="member"]');
+    let absent = [];
+    checkboxes.forEach(cb => {
+      if(!cb.checked){ absent.push(cb.value); }
+    });
+    if(absent.length === 0){
+      document.getElementById('attendanceResult').innerText = "Everyone attended. No fine 🎉";
+    } else {
+      document.getElementById('attendanceResult').innerText = "Absent members (fine applicable): " + absent.join(', ');
+    }
+  }
+
+  document.getElementById('photoUpload').addEventListener('change', function(e){
+    const gallery = document.getElementById('gallery');
+    Array.from(e.target.files).forEach(file => {
+      const reader = new FileReader();
+      reader.onload = function(){
+        const img = document.createElement('img');
+        img.src = reader.result;
+        img.style.width = '120px';
+        img.style.height = '120px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '12px';
+        gallery.appendChild(img);
+      }
+      reader.readAsDataURL(file);
+    });
+  });
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = meetingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+  }, 1000);
+</script></body>
+</html>
