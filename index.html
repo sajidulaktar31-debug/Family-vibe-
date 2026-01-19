@@ -71,6 +71,21 @@
       font-weight:bold;
       color:#ff5f8a;
     }
+    .attendance-group{
+      margin-bottom:20px;
+    }
+    .attendance-group label{
+      display:block;
+      margin-left:20px;
+      font-size:16px;
+    }
+    .date-input{
+      margin-top:10px;
+      padding:8px 12px;
+      font-size:16px;
+      border-radius:8px;
+      border:1px solid #ccc;
+    }
   </style>
 </head>
 <body><header>
@@ -85,16 +100,69 @@
       share stories, enjoy food, laugh freely, and strengthen our family bond.
     </p>
   </div>  <div class="card">
-    <h2>Family Members & Heads</h2>
-    <ul>
-      <li>1️⃣ Head: Jushnara | Members: 4</li>
-      <li>2️⃣ Head: Parbeen | Members: 6</li>
-      <li>3️⃣ Head: Sabina | Members: 4</li>
-      <li>4️⃣ Head: Masuma | Members: 4</li>
-      <li>5️⃣ Head: Lotifa | Members: 5</li>
-      <li>6️⃣ Head: Ajija | Members: 3</li>
-      <li>7️⃣ Head: Mehtaz | Members: 2</li>
-    </ul>
+    <h2>Family Heads & Attendance</h2><div class="attendance-group">
+  <strong>1. Jushnara (Head)</strong>
+  <input type="date" class="date-input" id="dateJushnara" title="Select date">
+  <label><input type="checkbox" name="JushnaraMember1"> Member 1</label>
+  <label><input type="checkbox" name="JushnaraMember2"> Member 2</label>
+  <label><input type="checkbox" name="JushnaraMember3"> Member 3</label>
+  <label><input type="checkbox" name="JushnaraMember4"> Member 4</label>
+</div>
+
+<div class="attendance-group">
+  <strong>2. Parbeen (Head)</strong>
+  <input type="date" class="date-input" id="dateParbeen" title="Select date">
+  <label><input type="checkbox" name="ParbeenMember1"> Member 1</label>
+  <label><input type="checkbox" name="ParbeenMember2"> Member 2</label>
+  <label><input type="checkbox" name="ParbeenMember3"> Member 3</label>
+  <label><input type="checkbox" name="ParbeenMember4"> Member 4</label>
+  <label><input type="checkbox" name="ParbeenMember5"> Member 5</label>
+  <label><input type="checkbox" name="ParbeenMember6"> Member 6</label>
+</div>
+
+<div class="attendance-group">
+  <strong>3. Sabina (Head)</strong>
+  <input type="date" class="date-input" id="dateSabina" title="Select date">
+  <label><input type="checkbox" name="SabinaMember1"> Member 1</label>
+  <label><input type="checkbox" name="SabinaMember2"> Member 2</label>
+  <label><input type="checkbox" name="SabinaMember3"> Member 3</label>
+  <label><input type="checkbox" name="SabinaMember4"> Member 4</label>
+</div>
+
+<div class="attendance-group">
+  <strong>4. Masuma (Head)</strong>
+  <input type="date" class="date-input" id="dateMasuma" title="Select date">
+  <label><input type="checkbox" name="MasumaMember1"> Member 1</label>
+  <label><input type="checkbox" name="MasumaMember2"> Member 2</label>
+  <label><input type="checkbox" name="MasumaMember3"> Member 3</label>
+  <label><input type="checkbox" name="MasumaMember4"> Member 4</label>
+</div>
+
+<div class="attendance-group">
+  <strong>5. Lotifa (Head)</strong>
+  <input type="date" class="date-input" id="dateLotifa" title="Select date">
+  <label><input type="checkbox" name="LotifaMember1"> Member 1</label>
+  <label><input type="checkbox" name="LotifaMember2"> Member 2</label>
+  <label><input type="checkbox" name="LotifaMember3"> Member 3</label>
+  <label><input type="checkbox" name="LotifaMember4"> Member 4</label>
+  <label><input type="checkbox" name="LotifaMember5"> Member 5</label>
+</div>
+
+<div class="attendance-group">
+  <strong>6. Ajija (Head)</strong>
+  <input type="date" class="date-input" id="dateAjija" title="Select date">
+  <label><input type="checkbox" name="AjijaMember1"> Member 1</label>
+  <label><input type="checkbox" name="AjijaMember2"> Member 2</label>
+  <label><input type="checkbox" name="AjijaMember3"> Member 3</label>
+</div>
+
+<div class="attendance-group">
+  <strong>7. Mehtaz (Head)</strong>
+  <input type="date" class="date-input" id="dateMehtaz" title="Select date">
+  <label><input type="checkbox" name="MehtazMember1"> Member 1</label>
+  <label><input type="checkbox" name="MehtazMember2"> Member 2</label>
+</div>
+
   </div>  <div class="card">
     <h2>Next Family Meet Countdown</h2>
     <div class="countdown" id="countdown">
@@ -105,21 +173,71 @@
     </div>
     <button onclick="resetCountdown()" style="margin-top:15px;padding:10px 20px;border:none;border-radius:12px;background:#ff5f8a;color:white;font-weight:bold;cursor:pointer;">Reset Countdown</button>
   </div>  <div class="card">
-    <h2>Family Attendance</h2>
-    <p>Please mark attendance for this meeting. Members who do not attend may be subject to a family-decided fine.</p>
-    <form id="attendanceForm">
-      <label><input type="checkbox" name="member" value="Jushnara"> Jushnara</label><br>
-      <label><input type="checkbox" name="member" value="Parbeen"> Parbeen</label><br>
-      <label><input type="checkbox" name="member" value="Sabina"> Sabina</label><br>
-      <label><input type="checkbox" name="member" value="Masuma"> Masuma</label><br>
-      <label><input type="checkbox" name="member" value="Lotifa"> Lotifa</label><br>
-      <label><input type="checkbox" name="member" value="Ajija"> Ajija</label><br>
-      <label><input type="checkbox" name="member" value="Mehtaz"> Mehtaz</label><br><br>
-      <button type="button" onclick="checkAttendance()">Submit Attendance</button>
-    </form>
-    <p id="attendanceResult"></p>
-  </div>  <div class="card">
     <h2>Family Memories</h2>
     <p>Click the + icon to upload and save your beautiful family moments.</p>
     <label for="photoUpload" style="font-size:40px;cursor:pointer;color:#ff5f8a;">＋</label>
-    <input type="file" id="photoUpload"
+    <input type="file" id="photoUpload" accept="image/*" style="display:none" multiple>
+    <div id="gallery" style="margin-top:20px;display:flex;flex-wrap:wrap;gap:15px;"></div>
+  </div>
+</section><footer>
+  © 2026 Forever Family | Built with Love
+</footer><script>
+  const FINE_PER_MEMBER = 500;
+
+  function checkAttendance(){
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let absent = [];
+    checkboxes.forEach(cb => { if(!cb.checked) absent.push(cb.name); });
+    const fine = absent.length * FINE_PER_MEMBER;
+    if(absent.length === 0){
+      alert("Everyone attended. No fine 🎉");
+    } else {
+      alert(`Absent members: ${absent.join(', ')} | Total Fine: ₹${fine}`);
+    }
+    localStorage.setItem('attendance', JSON.stringify(absent));
+  }
+
+  const savedAbsent = JSON.parse(localStorage.getItem('attendance') || '[]');
+  if(savedAbsent.length > 0){
+    console.log(`Previously Absent: ${savedAbsent.join(', ')}`);
+  }
+
+  // Countdown timer
+  let meetingDate = new Date().getTime() + 86400000*30; // default 30 days
+  function updateCountdown(){
+    const now = new Date().getTime();
+    const distance = meetingDate - now;
+    if(distance < 0) return;
+    document.getElementById('days').innerText = Math.floor(distance / (1000*60*60*24));
+    document.getElementById('hours').innerText = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    document.getElementById('minutes').innerText = Math.floor((distance % (1000*60*60)) / (1000*60));
+    document.getElementById('seconds').innerText = Math.floor((distance % (1000*60)) / 1000);
+  }
+  setInterval(updateCountdown,1000);
+
+  function resetCountdown(){
+    const inputDate = prompt('Enter next family meeting date (YYYY-MM-DD):');
+    if(inputDate){
+      meetingDate = new Date(inputDate+'T00:00:00').getTime();
+    }
+  }
+
+  // Photo upload gallery
+  document.getElementById('photoUpload').addEventListener('change', function(e){
+    const gallery = document.getElementById('gallery');
+    Array.from(e.target.files).forEach(file => {
+      const reader = new FileReader();
+      reader.onload = function(){
+        const img = document.createElement('img');
+        img.src = reader.result;
+        img.style.width = '120px';
+        img.style.height = '120px';
+        img.style.objectFit = 'cover';
+        img.style.borderRadius = '12px';
+        gallery.appendChild(img);
+      }
+      reader.readAsDataURL(file);
+    });
+  });
+</script></body>
+</html>
