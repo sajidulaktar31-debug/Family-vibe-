@@ -1,112 +1,26 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forever Family</title>
   <style>
-    body{
-      margin:0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background:#fff7f9;
-      color:#333;
-    }
-    header{
-      background:linear-gradient(135deg,#ff758c,#ff7eb3);
-      color:white;
-      text-align:center;
-      padding:60px 20px;
-    }
-    header h1{
-      font-size:42px;
-      margin:0;
-    }
-    header p{
-      font-size:18px;
-      margin-top:10px;
-    }
-    section{
-      padding:50px 20px;
-      max-width:1000px;
-      margin:auto;
-    }
-    .card{
-      background:white;
-      padding:30px;
-      border-radius:16px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.08);
-      margin-bottom:30px;
-    }
-    h2{
-      color:#ff5f8a;
-      margin-bottom:15px;
-    }
-    .attendance-group{
-      margin-bottom:20px;
-    }
-    .attendance-group label{
-      display:block;
-      margin-left:20px;
-      font-size:16px;
-    }
-    .submit-btn{
-      margin-top:10px;
-      padding:10px 20px;
-      border:none;
-      border-radius:12px;
-      background:#ff5f8a;
-      color:white;
-      font-weight:bold;
-      cursor:pointer;
-    }
-    .fine-display{
-      font-weight:bold;
-      color:#ff5f8a;
-      margin-top:8px;
-    }
-    .countdown div{
-      display:inline-block;
-      background:#ffe4ec;
-      padding:15px;
-      border-radius:12px;
-      width:100px;
-      text-align:center;
-      margin-right:10px;
-    }
-    .countdown span{
-      display:block;
-      font-size:26px;
-      font-weight:bold;
-      color:#ff5f8a;
-    }
-    #meetingDatePicker{
-      margin-top:10px;
-      padding:8px 12px;
-      font-size:16px;
-      border-radius:8px;
-      border:1px solid #ccc;
-    }
-    #gallery img{
-      width:120px;
-      height:120px;
-      object-fit:cover;
-      border-radius:12px;
-    }
-    .photo-wrapper{
-      position:relative;
-      display:inline-block;
-      margin:5px;
-    }
-    .photo-wrapper span{
-      position:absolute;
-      top:0;
-      right:0;
-      background:#ff5f8a;
-      color:white;
-      border-radius:50%;
-      cursor:pointer;
-      padding:2px 6px;
-      font-weight:bold;
-    }
+    body{margin:0;font-family:'Segoe UI',Tahoma,sans-serif;background:#fff7f9;color:#333;}
+    header{background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;text-align:center;padding:60px 20px;}
+    header h1{font-size:42px;margin:0;}
+    header p{font-size:18px;margin-top:10px;}
+    section{padding:50px 20px;max-width:1000px;margin:auto;}
+    .card{background:white;padding:30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.08);margin-bottom:30px;}
+    h2{color:#ff5f8a;margin-bottom:15px;}
+    .attendance-group{margin-bottom:20px;}
+    .attendance-group label{display:block;margin-left:20px;font-size:16px;}
+    .submit-btn{margin-top:10px;padding:10px 20px;border:none;border-radius:12px;background:#ff5f8a;color:white;font-weight:bold;cursor:pointer;}
+    .fine-display{font-weight:bold;color:#ff5f8a;margin-top:8px;}
+    .countdown div{display:inline-block;background:#ffe4ec;padding:15px;border-radius:12px;width:100px;text-align:center;margin-right:10px;}
+    .countdown span{display:block;font-size:26px;font-weight:bold;color:#ff5f8a;}
+    #meetingDatePicker{margin-top:10px;padding:8px 12px;font-size:16px;border-radius:8px;border:1px solid #ccc;}
+    #gallery img{width:120px;height:120px;object-fit:cover;border-radius:12px;}
+    .photo-wrapper{position:relative;display:inline-block;margin:5px;}
+    .photo-wrapper span{position:absolute;top:0;right:0;background:#ff5f8a;color:white;border-radius:50%;cursor:pointer;padding:2px 6px;font-weight:bold;}
   </style>
 </head>
 <body><header>
@@ -114,13 +28,6 @@
   <p>Together in Heart, Forever in Love</p>
 </header><section>
   <div class="card">
-    <h2>About Our Family Meet</h2>
-    <p>
-      Forever Family is our special family gathering that happens every six months.
-      It is a beautiful time when all family members come together to reconnect,
-      share stories, enjoy food, laugh freely, and strengthen our family bond.
-    </p>
-  </div>  <div class="card">
     <h2>Next Family Meet Countdown</h2>
     <input type="date" id="meetingDatePicker">
     <button onclick="updateMeetingDate()" class="submit-btn">Set Date</button>
@@ -137,7 +44,7 @@
   <label><input type="checkbox" name="JushnaraMember2"> Member 2</label>
   <label><input type="checkbox" name="JushnaraMember3"> Member 3</label>
   <label><input type="checkbox" name="JushnaraMember4"> Member 4</label>
-  <button class="submit-btn" onclick="submitAttendance('Jushnara', 4)">Submit Attendance & </button>
+  <button class="submit-btn" onclick="submitAttendance('Jushnara',4)">Submit Attendance</button>
   <div class="fine-display" id="fineJushnara"></div>
 </div>
 
@@ -149,7 +56,7 @@
   <label><input type="checkbox" name="ParbeenMember4"> Member 4</label>
   <label><input type="checkbox" name="ParbeenMember5"> Member 5</label>
   <label><input type="checkbox" name="ParbeenMember6"> Member 6</label>
-  <button class="submit-btn" onclick="submitAttendance('Parbeen', 6)">Submit Attendance & </button>
+  <button class="submit-btn" onclick="submitAttendance('Parbeen',6)">Submit Attendance</button>
   <div class="fine-display" id="fineParbeen"></div>
 </div>
 
@@ -159,7 +66,7 @@
   <label><input type="checkbox" name="SabinaMember2"> Member 2</label>
   <label><input type="checkbox" name="SabinaMember3"> Member 3</label>
   <label><input type="checkbox" name="SabinaMember4"> Member 4</label>
-  <button class="submit-btn" onclick="submitAttendance('Sabina', 4)">Submit Attendance & </button>
+  <button class="submit-btn" onclick="submitAttendance('Sabina',4)">Submit Attendance</button>
   <div class="fine-display" id="fineSabina"></div>
 </div>
 
@@ -169,7 +76,7 @@
   <label><input type="checkbox" name="MasumaMember2"> Member 2</label>
   <label><input type="checkbox" name="MasumaMember3"> Member 3</label>
   <label><input type="checkbox" name="MasumaMember4"> Member 4</label>
-  <button class="submit-btn" onclick="submitAttendance('Masuma', 4)">Submit Attendance & </button>
+  <button class="submit-btn" onclick="submitAttendance('Masuma',4)">Submit Attendance</button>
   <div class="fine-display" id="fineMasuma"></div>
 </div>
 
@@ -180,7 +87,7 @@
   <label><input type="checkbox" name="LotifaMember3"> Member 3</label>
   <label><input type="checkbox" name="LotifaMember4"> Member 4</label>
   <label><input type="checkbox" name="LotifaMember5"> Member 5</label>
-  <button class="submit-btn" onclick="submitAttendance('Lotifa', 5)">Submit Attendance & </button>
+  <button class="submit-btn" onclick="submitAttendance('Lotifa',5)">Submit Attendance</button>
   <div class="fine-display" id="fineLotifa"></div>
 </div>
 
@@ -189,7 +96,7 @@
   <label><input type="checkbox" name="AjijaMember1"> Member 1</label>
   <label><input type="checkbox" name="AjijaMember2"> Member 2</label>
   <label><input type="checkbox" name="AjijaMember3"> Member 3</label>
-  <button class="submit-btn" onclick="submitAttendance('Ajija', 3)">Submit Attendance</button>
+  <button class="submit-btn" onclick="submitAttendance('Ajija',3)">Submit Attendance</button>
   <div class="fine-display" id="fineAjija"></div>
 </div>
 
@@ -197,10 +104,11 @@
   <strong>7. Mehtaz (Head)</strong>
   <label><input type="checkbox" name="MehtazMember1"> Member 1</label>
   <label><input type="checkbox" name="MehtazMember2"> Member 2</label>
-  <button class="submit-btn" onclick="submitAttendance('Mehtaz', 2)">Submit Attendance</button>
+  <button class="submit-btn" onclick="submitAttendance('Mehtaz',2)">Submit Attendance</button>
   <div class="fine-display" id="fineMehtaz"></div>
 </div>
-    <div Send to WhatsApp Group</button>
+
+<button class="submit-btn" onclick="sendAllToWhatsApp()" style="background:#ff2e63;">Send All Attendance Details to WhatsApp Group</button>
 
   </div>  <div class="card">
     <h2>Family Memories</h2>
@@ -213,18 +121,28 @@
   © 2026 Forever Family | Built with Love
 </footer><script>
 const FINE_PER_MEMBER = 500;
-let meetingDate = new Date().getTime() + 86400000*30; // default 30 days
+let meetingDate = new Date().getTime() + 86400000*30;
+const familyHeads = ['Jushnara','Parbeen','Sabina','Masuma','Lotifa','Ajija','Mehtaz'];
+const familyMembers = {'Jushnara':4,'Parbeen':6,'Sabina':4,'Masuma':4,'Lotifa':5,'Ajija':3,'Mehtaz':2};
 
-function submitAttendance(familyHead, totalMembers){
+function submitAttendance(familyHead,total){
   const groupDiv = document.getElementById('group'+familyHead);
   const checkboxes = groupDiv.querySelectorAll('input[type="checkbox"]');
   let absent = [];
-  checkboxes.forEach(cb => { if(!cb.checked) absent.push(cb.name); });
-  const fine = absent.length * FINE_PER_MEMBER;
-  document.getElementById('fine'+familyHead).innerText = `Absent members: ${absent.length} | Fine: ₹${fine}`;
-  localStorage.setItem('attendance_'+familyHead, JSON.stringify(absent));
-  // WhatsApp group link
-  const waLink = `https://chat.whatsapp.com/IrjbhMvNCbV8rxAnbPVceF`;
+  let present = [];
+  checkboxes.forEach(cb => { cb.checked ? present.push(cb.name) : absent.push(cb.name); });
+  const fine = absent.length*FINE_PER_MEMBER;
+  document.getElementById('fine'+familyHead).innerText = `Present: ${present.length} | Absent: ${absent.length} | Fine: ₹${fine}`;
+  localStorage.setItem('attendance_'+familyHead,JSON.stringify({present,absent,fine}));
+}
+
+function sendAllToWhatsApp(){
+  let message = '📊 Family Attendance Summary:\n';
+  familyHeads.forEach(fh => {
+    let data = JSON.parse(localStorage.getItem('attendance_'+fh)||'{"present":[],"absent":[],"fine":0}');
+    message += `\n${fh} (Total: ${familyMembers[fh]})\nPresent: ${data.present.length}\nAbsent: ${data.absent.length}\nFine: ₹${data.fine}\n`;
+  });
+  const waLink = `https://chat.whatsapp.com/IrjbhMvNCbV8rxAnbPVceF?text=${encodeURIComponent(message)}`;
   window.open(waLink,'_blank');
 }
 
@@ -239,22 +157,17 @@ function updateCountdown(){
 }
 setInterval(updateCountdown,1000);
 
-function resetCountdown(){
-  const inputDate = prompt('Enter next family meeting date (YYYY-MM-DD):');
-  if(inputDate) meetingDate = new Date(inputDate+'T00:00:00').getTime();
-}
-
 function updateMeetingDate(){
   const selected = document.getElementById('meetingDatePicker').value;
   if(selected) meetingDate = new Date(selected+'T00:00:00').getTime();
 }
 
-const gallery = document.getElementById('gallery');
+const gallery=document.getElementById('gallery');
 document.getElementById('photoUpload').addEventListener('change',function(e){
   Array.from(e.target.files).forEach(file=>{
-    const reader = new FileReader();
+    const reader=new FileReader();
     reader.onload=function(){
-      const wrapper = document.createElement('div');
+      const wrapper=document.createElement('div');
       wrapper.className='photo-wrapper';
       const img=document.createElement('img');
       img.src=reader.result;
